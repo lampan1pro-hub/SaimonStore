@@ -16,7 +16,7 @@
   .head-in{max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px;padding:14px 20px;flex-wrap:wrap}
   .logo{font-size:22px;font-weight:800;letter-spacing:.5px;white-space:nowrap}
   .logo b{color:var(--accent)}
-  .search{flex:1;min-width:200px;display:flex;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:9px 14px;gap:8px}
+  .search{flex:1;min-width:180px;display:flex;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:9px 14px;gap:8px}
   .search input{flex:1;background:none;border:none;outline:none;color:var(--text);font-size:15px}
   .btn{border:none;cursor:pointer;border-radius:12px;font-weight:600;font-size:14px;padding:11px 20px;transition:.2s;color:#fff}
   .btn-pub{background:linear-gradient(90deg,var(--accent),#2ea043);box-shadow:0 4px 18px rgba(63,185,80,.3)}
@@ -24,6 +24,8 @@
   .btn-dl{background:linear-gradient(90deg,#2fae67,var(--ok));width:100%;padding:12px;font-size:15px}
   .btn-dl:hover{filter:brightness(1.1)}
   .btn-dl:disabled{opacity:.7;cursor:wait}
+  .avatar{border-radius:50%;object-fit:cover;cursor:pointer;border:2px solid var(--border);transition:.2s;flex-shrink:0}
+  .avatar:hover{border-color:var(--accent)}
   main{max-width:1100px;margin:auto;padding:24px 20px 60px}
   .cats{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 20px}
   .cat{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:7px 16px;border-radius:20px;cursor:pointer;font-size:13px;transition:.2s}
@@ -32,13 +34,15 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
   .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;cursor:pointer;transition:.2s}
   .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.4)}
-  .icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:12px}
+  .icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:12px;overflow:hidden}
+  .icon img{width:100%;height:100%;object-fit:cover}
   .card h3{font-size:16px;margin-bottom:4px}
   .card .dev{font-size:12px;color:var(--muted);margin-bottom:8px}
   .meta{font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap}
   .stars{color:var(--warn);letter-spacing:1px}
   .dl-count{color:var(--ok)}
   .apk-badge{font-size:10px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:2px 6px;border-radius:6px}
+  .mine-badge{font-size:10px;font-weight:700;color:var(--accent2);border:1px solid var(--accent2);padding:2px 6px;border-radius:6px}
   .modal-bg{display:none;position:fixed;inset:0;background:rgba(5,8,15,.78);backdrop-filter:blur(6px);z-index:100;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
   .modal-bg.open{display:flex}
   .modal{background:var(--bg2);border:1px solid var(--border);border-radius:20px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;padding:26px;position:relative}
@@ -52,8 +56,9 @@
   .desc{color:var(--muted);line-height:1.6;margin-bottom:20px}
   .reviews h3{margin:18px 0 12px;font-size:17px}
   .rev{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px}
-  .rev .r-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;font-size:13px}
-  .rev .r-user{font-weight:600}
+  .rev .r-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;font-size:13px;gap:8px}
+  .rev .r-user{font-weight:600;display:flex;align-items:center;gap:8px;min-width:0}
+  .rev .r-ava{width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:13px}
   .rev .r-text{font-size:14px;color:var(--muted);line-height:1.5}
   .rev-form{background:var(--card);border:1px dashed var(--border);border-radius:12px;padding:14px;margin-top:14px}
   .rev-form input,.rev-form textarea,.pub-form input,.pub-form textarea,.pub-form select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:10px 12px;margin-bottom:10px;font-size:14px;outline:none}
@@ -65,6 +70,23 @@
   .file-drop{border:2px dashed var(--border);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:.2s;margin-bottom:12px}
   .file-drop:hover,.file-drop.over{border-color:var(--accent);background:rgba(63,185,80,.06)}
   .file-drop .fname{color:var(--accent);font-weight:600}
+  /* аватарка приложения */
+  .icon-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+  .icon-prev{width:64px;height:64px;border-radius:14px;background:var(--card);border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:32px;overflow:hidden;flex-shrink:0}
+  .icon-prev img{width:100%;height:100%;object-fit:cover}
+  .icon-prev:hover{border-color:var(--accent)}
+  .icon-btns{display:flex;flex-direction:column;gap:6px;flex:1}
+  .mini-btn{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer;transition:.2s;text-align:center}
+  .mini-btn:hover{border-color:var(--accent)}
+  /* профиль */
+  .prof-top{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:18px}
+  .prof-ava{width:110px;height:110px;border-radius:50%;border:3px solid var(--accent);object-fit:cover;cursor:pointer;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:48px;overflow:hidden;transition:.2s}
+  .prof-ava:hover{filter:brightness(1.15)}
+  .prof-ava img{width:100%;height:100%;object-fit:cover}
+  .prof-stats{display:flex;gap:12px;width:100%}
+  .pstat{flex:1;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center}
+  .pstat b{font-size:22px;color:var(--accent);display:block}
+  .pstat span{font-size:12px;color:var(--muted)}
   .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);background:linear-gradient(90deg,var(--accent),#2ea043);color:#fff;padding:12px 26px;border-radius:14px;font-weight:600;z-index:200;transition:.35s;box-shadow:0 8px 30px rgba(0,0,0,.5)}
   .toast.show{transform:translateX(-50%) translateY(0)}
   .progress{background:var(--card);border-radius:12px;height:8px;overflow:hidden;margin-top:10px;display:none}
@@ -82,6 +104,7 @@
     <div class="logo">🤖 <b>saimon</b>Store</div>
     <div class="search">🔎 <input id="search" placeholder="Поиск приложений..."></div>
     <button class="btn btn-pub" onclick="openPub()">＋ Загрузить APK</button>
+    <div id="headProfile"></div>
   </div>
 </header>
 
@@ -90,20 +113,27 @@
   <div class="grid" id="grid"></div>
 </main>
 
-<div class="modal-bg" id="appModal">
-  <div class="modal" id="appModalBody"></div>
-</div>
+<div class="modal-bg" id="appModal"><div class="modal" id="appModalBody"></div></div>
 
 <div class="modal-bg" id="pubModal">
   <div class="modal">
     <button class="close-x" onclick="closeModal('pubModal')">✕</button>
     <h2 style="margin-bottom:6px">🚀 Загрузить приложение</h2>
-    <p style="color:var(--muted);font-size:13px;margin-bottom:12px">Выберите настоящий файл <b style="color:var(--accent)">.apk</b> — покупатели скачают именно его.</p>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:12px">Выберите настоящий файл <b style="color:var(--accent)">.apk</b> и аватарку — покупатели скачают именно его.</p>
     <div class="pub-form">
       <div class="file-drop" id="fileDrop">
         📂 <b>Перетащите APK сюда</b> или нажмите для выбора
         <input type="file" id="apkFile" accept=".apk,application/vnd.android.package-archive" hidden>
         <div class="fname" id="fileName" style="display:none;margin-top:8px"></div>
+      </div>
+      <label>Аватарка приложения</label>
+      <div class="icon-row">
+        <div class="icon-prev" id="iconPrev" onclick="document.getElementById('iconFile').click()">📦</div>
+        <div class="icon-btns">
+          <div class="mini-btn" onclick="document.getElementById('iconFile').click()">🖼️ Загрузить картинку</div>
+          <div class="mini-btn" onclick="setEmojiIcon()">😀 Случайный эмодзи</div>
+        </div>
+        <input type="file" id="iconFile" accept="image/*" hidden>
       </div>
       <label>Название приложения *</label>
       <input id="pName" maxlength="40" placeholder="Например: Мой Клиент">
@@ -123,96 +153,152 @@
   </div>
 </div>
 
+<div class="modal-bg" id="profModal">
+  <div class="modal">
+    <button class="close-x" onclick="closeModal('profModal')">✕</button>
+    <h2 style="margin-bottom:14px">👤 Мой профиль</h2>
+    <div class="prof-top">
+      <div class="prof-ava" id="profAva" onclick="document.getElementById('avaFile').click()">😀</div>
+      <input type="file" id="avaFile" accept="image/*" hidden>
+      <input id="profName" maxlength="24" placeholder="Ваше имя" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--text);padding:12px 14px;font-size:16px;text-align:center;font-weight:600;outline:none">
+    </div>
+    <div class="prof-stats">
+      <div class="pstat"><b id="stApps">0</b><span>моих приложений</span></div>
+      <div class="pstat"><b id="stDl" style="color:var(--ok)">0</b><span>всего загрузок</span></div>
+      <div class="pstat"><b id="stRevs" style="color:var(--accent2)">0</b><span>отзывов о них</span></div>
+    </div>
+    <button class="btn btn-pub" style="width:100%;margin-top:16px" onclick="saveProfile()">💾 Сохранить профиль</button>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-const PALETTE = ['#3fb950','#58a6ff','#bc8cff','#f778ba','#f0b429','#ff7b72','#39c5cf','#79c0ff'];
-const CATS = ['Все','Инструменты','Игры','Образование','Музыка','Фото','Соцсети','Спорт','Другое'];
+const PALETTE=['#3fb950','#58a6ff','#bc8cff','#f778ba','#f0b429','#ff7b72','#39c5cf','#79c0ff'];
+const EMOJIS=['🚀','🎮','🛡️','📝','🎸','📸','💪','🎧','🌍','⚡','🔥','🤖','🎯','🛠️','🎨','📚','💬','🎬','🏆','🧩','📦','🌟','🎁','🚗'];
+const CATS=['Все','Мои','Инструменты','Игры','Образование','Музыка','Фото','Соцсети','Спорт','Другое'];
 
-/* ============ IndexedDB: храним настоящие APK-файлы ============ */
-const DB_NAME='saimonStoreDB', STORE='apps';
+/* ===== IndexedDB: apps + profile ===== */
+const DB_NAME='saimonStoreDB';
 let db;
 function openDB(){
   return new Promise((res,rej)=>{
-    const r=indexedDB.open(DB_NAME,1);
-    r.onupgradeneeded=e=>{ e.target.result.createObjectStore(STORE,{keyPath:'id'}); };
-    r.onsuccess=e=>{ db=e.target.result; res(); };
+    const r=indexedDB.open(DB_NAME,2);
+    r.onupgradeneeded=e=>{
+      const d=e.target.result;
+      if(!d.objectStoreNames.contains('apps')) d.createObjectStore('apps',{keyPath:'id'});
+      if(!d.objectStoreNames.contains('profile')) d.createObjectStore('profile',{keyPath:'key'});
+    };
+    r.onsuccess=e=>{db=e.target.result;res();};
     r.onerror=e=>rej(e);
   });
 }
-function dbAll(){ return new Promise(res=>{ const t=db.transaction(STORE).objectStore(STORE).getAll(); t.onsuccess=()=>res(t.result||[]); }); }
-function dbPut(a){ return new Promise(res=>{ db.transaction(STORE,'readwrite').objectStore(STORE).put(a).onsuccess=res; }); }
-function dbDel(id){ return new Promise(res=>{ db.transaction(STORE,'readwrite').objectStore(STORE).delete(id).onsuccess=res; }); }
+function dbAll(s){ return new Promise(res=>{const t=db.transaction(s).objectStore(s).getAll();t.onsuccess=()=>res(t.result||[]);}); }
+function dbPut(s,v){ return new Promise(res=>{db.transaction(s,'readwrite').objectStore(s).put(v).onsuccess=res;}); }
 
 function makeApkBlob(name,dev,ver){
-  // Стартовые приложения — с реальным скачиваемым .apk-контейнером (демо-контент)
-  const txt=`saimonStore APK\n================\nApp: ${name}\nDeveloper: ${dev}\nVersion: ${ver}\n\nDemo build from saimonStore.`;
-  return new Blob([txt],{type:'application/vnd.android.package-archive'});
+  return new Blob([`saimonStore APK\n================\nApp: ${name}\nDeveloper: ${dev}\nVersion: ${ver}\n\nDemo build from saimonStore.`],{type:'application/vnd.android.package-archive'});
 }
-function fmtBytes(b){ if(b>=1048576) return (b/1048576).toFixed(1).replace('.0','')+' MB'; if(b>=1024) return (b/1024).toFixed(0)+' KB'; return b+' B'; }
+function fmtBytes(b){ if(b>=1048576)return(b/1048576).toFixed(1).replace('.0','')+' MB'; if(b>=1024)return(b/1024).toFixed(0)+' KB'; return b+' B'; }
 
-const SEED = [
-  {id:'seed1',name:'SpeedVPN',dev:'NetShield Studio',cat:'Инструменты',icon:'🛡️',ver:'3.2.1',desc:'Быстрый и безопасный VPN. Одно касание — и трафик зашифрован. Более 50 серверов по всему миру.',dl:154000,revs:[
-    {u:'Дмитрий К.',s:5,t:'Работает отлично, скорость не режет.'},
-    {u:'Аня',s:4,t:'Хороший, но иногда долго коннектится.'}]},
-  {id:'seed2',name:'Pixel Runner',dev:'Grape Games',cat:'Игры',icon:'🏃',ver:'1.8.0',desc:'Яркий раннер с пиксельной графикой. Уворачивайтесь от препятствий и открывайте новых персонажей.',dl:89200,revs:[
-    {u:'Игроман',s:5,t:'Затягивает! Душевная графика и саундтрек.'},
-    {u:'Света',s:3,t:'Классная игра, но рекламы многовато.'}]},
-  {id:'seed3',name:'Notely',dev:'Softberry',cat:'Инструменты',icon:'📝',ver:'2.0.4',desc:'Минималистичные заметки с папками, напоминаниями и синхронизацией. Поддержка Markdown и виджетов.',dl:43200,revs:[
-    {u:'Ольга',s:5,t:'Наконец-то заметки без лишнего. Всё чисто.'}]},
-  {id:'seed4',name:'Chords & Tabs',dev:'MusicLab',cat:'Музыка',icon:'🎸',ver:'4.5.2',desc:'База аккордов и табулатур для гитары с автопрокруткой, метрономом и тюнером. Работает офлайн.',dl:61100,revs:[
-    {u:'Гитарист',s:5,t:'Тюнер точный, аккордов огромная база.'},
-    {u:'Мария',s:4,t:'Удобно учить песни.'}]},
-  {id:'seed5',name:'PhotoFX',dev:'PixelForge',cat:'Фото',icon:'📸',ver:'6.1.0',desc:'Фоторедактор: фильтры, ретушь, коллажи и ИИ-улучшение качества снимков. Экспорт в высоком разрешении.',dl:120500,revs:[
-    {u:'Фотограф',s:5,t:'ИИ-апскейл работает чудесно.'},
-    {u:'Лена',s:4,t:'Много фильтров, интерфейс понятный.'}]},
-  {id:'seed6',name:'FitTrack Pro',dev:'HealthTech',cat:'Спорт',icon:'💪',ver:'1.3.0',desc:'Трекер тренировок и питания: программы для зала и дома, подсчёт калорий и статистика прогресса.',dl:37800,revs:[
-    {u:'Артём',s:4,t:'Хорошие программы для новичка, статистика мотивирует.'}]},
+const SEED=[
+  {id:'seed1',name:'SpeedVPN',dev:'NetShield Studio',cat:'Инструменты',icon:'🛡️',ver:'3.2.1',desc:'Быстрый и безопасный VPN. Одно касание — и трафик зашифрован. Более 50 серверов по всему миру.',dl:154000,revs:[{u:'Дмитрий К.',s:5,t:'Работает отлично, скорость не режет.'},{u:'Аня',s:4,t:'Хороший, но иногда долго коннектится.'}]},
+  {id:'seed2',name:'Pixel Runner',dev:'Grape Games',cat:'Игры',icon:'🏃',ver:'1.8.0',desc:'Яркий раннер с пиксельной графикой. Уворачивайтесь от препятствий и открывайте новых персонажей.',dl:89200,revs:[{u:'Игроман',s:5,t:'Затягивает! Душевная графика и саундтрек.'},{u:'Света',s:3,t:'Классная игра, но рекламы многовато.'}]},
+  {id:'seed3',name:'Notely',dev:'Softberry',cat:'Инструменты',icon:'📝',ver:'2.0.4',desc:'Минималистичные заметки с папками, напоминаниями и синхронизацией. Поддержка Markdown и виджетов.',dl:43200,revs:[{u:'Ольга',s:5,t:'Наконец-то заметки без лишнего. Всё чисто.'}]},
+  {id:'seed4',name:'Chords & Tabs',dev:'MusicLab',cat:'Музыка',icon:'🎸',ver:'4.5.2',desc:'База аккордов и табулатур для гитары с автопрокруткой, метрономом и тюнером. Работает офлайн.',dl:61100,revs:[{u:'Гитарист',s:5,t:'Тюнер точный, аккордов огромная база.'}]},
+  {id:'seed5',name:'PhotoFX',dev:'PixelForge',cat:'Фото',icon:'📸',ver:'6.1.0',desc:'Фоторедактор: фильтры, ретушь, коллажи и ИИ-улучшение качества снимков. Экспорт в высоком разрешении.',dl:120500,revs:[{u:'Фотограф',s:5,t:'ИИ-апскейл работает чудесно.'},{u:'Лена',s:4,t:'Много фильтров, интерфейс понятный.'}]},
+  {id:'seed6',name:'FitTrack Pro',dev:'HealthTech',cat:'Спорт',icon:'💪',ver:'1.3.0',desc:'Трекер тренировок и питания: программы для зала и дома, подсчёт калорий и статистика прогресса.',dl:37800,revs:[{u:'Артём',s:4,t:'Хорошие программы для новичка.'}]},
 ];
 
-let apps=[], curApp=null, curStars=5, activeCat='Все', pendingFile=null;
+let apps=[], profile={key:'me',name:'Пользователь',avatar:null};
+let curApp=null, curStars=5, activeCat='Все', pendingFile=null, pendingIcon=null;
 
 async function init(){
   await openDB();
-  apps = await dbAll();
+  apps=await dbAll('apps');
   if(!apps.length){
     for(const s of SEED){
-      s.fileName = s.name.replace(/\s+/g,'_')+'.apk';
-      s.sizeStr = fmtBytes(makeApkBlob(s.name,s.dev,s.ver).size);
-      s.blob = makeApkBlob(s.name,s.dev,s.ver);
-      await dbPut(s);
+      s.fileName=s.name.replace(/\s+/g,'_')+'.apk';
+      s.blob=makeApkBlob(s.name,s.dev,s.ver);
+      s.sizeStr=fmtBytes(s.blob.size);
+      s.owner='';
+      await dbPut('apps',s);
     }
-    apps = await dbAll();
+    apps=await dbAll('apps');
   }
-  apps.sort((a,b)=>(avg(b)-avg(a))||(b.dl-a.dl));
-  renderCats(); renderGrid();
+  const p=(await dbAll('profile'))[0];
+  if(p) profile=p;
+  renderHead(); renderCats(); renderGrid();
 }
 
-function avg(a){ return a.revs&&a.revs.length ? a.revs.reduce((x,r)=>x+r.s,0)/a.revs.length : 0; }
+/* ===== профиль ===== */
+function renderHead(){
+  const el=document.getElementById('headProfile');
+  const ava=profile.avatar
+    ? `<img class="avatar" width="38" height="38" src="${URL.createObjectURL(profile.avatar)}" title="Мой профиль" onclick="openProfile()">`
+    : `<div class="avatar" style="width:38px;height:38px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:18px" title="Мой профиль" onclick="openProfile()">👤</div>`;
+  el.innerHTML=ava;
+}
+function openProfile(){
+  const ava=document.getElementById('profAva');
+  if(profile.avatar){
+    ava.innerHTML=`<img src="${URL.createObjectURL(profile.avatar)}">`;
+  } else { ava.textContent='😀'; }
+  document.getElementById('profName').value=profile.name;
+  renderProfStats();
+  document.getElementById('profModal').classList.add('open');
+}
+function renderProfStats(){
+  const mine=apps.filter(a=>a.owner===profile.name);
+  document.getElementById('stApps').textContent=mine.length;
+  document.getElementById('stDl').textContent=fmtDl(mine.reduce((s,a)=>s+a.dl,0));
+  document.getElementById('stRevs').textContent=mine.reduce((s,a)=>s+a.revs.length,0);
+}
+async function saveProfile(){
+  profile.name=document.getElementById('profName').value.trim()||'Пользователь';
+  await dbPut('profile',profile);
+  renderHead(); renderGrid(); closeModal('profModal');
+  toast('✅ Профиль сохранён');
+}
+document.getElementById('avaFile').addEventListener('change',e=>{
+  const f=e.target.files[0]; if(!f) return;
+  if(!f.type.startsWith('image/')){ toast('⚠️ Нужна картинка'); return; }
+  profile.avatar=f;
+  document.getElementById('profAva').innerHTML=`<img src="${URL.createObjectURL(f)}">`;
+  toast('🖼️ Аватарка выбрана — не забудьте сохранить');
+});
+
+/* ===== рендер ===== */
+function avg(a){ return a.revs&&a.revs.length?a.revs.reduce((x,r)=>x+r.s,0)/a.revs.length:0; }
 function starStr(n){ const f=Math.round(n); return '★'.repeat(f)+'☆'.repeat(5-f); }
-function fmtDl(n){ return n>=1000 ? (n/1000).toFixed(1).replace('.0','')+'K' : n; }
-function colorFor(s){ let h=0; for(const c of s) h=(h*31+c.charCodeAt(0))>>>0; return PALETTE[h%PALETTE.length]; }
-function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
+function fmtDl(n){ return n>=1000?(n/1000).toFixed(1).replace('.0','')+'K':n; }
+function colorFor(s){ let h=0; for(const c of s)h=(h*31+c.charCodeAt(0))>>>0; return PALETTE[h%PALETTE.length]; }
 function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
+function iconHtml(a,cls){
+  const c=colorFor(a.name);
+  if(a.iconBlob) return `<div class="${cls}" style="background:${c}26"><img src="${URL.createObjectURL(a.iconBlob)}" alt=""></div>`;
+  return `<div class="${cls}" style="background:${c}26;border:1px solid ${c}55">${a.icon||'📦'}</div>`;
+}
 
 function renderCats(){
-  document.getElementById('cats').innerHTML = CATS.map(c=>
-    `<div class="cat ${c===activeCat?'active':''}" onclick="setCat('${c}')">${c}</div>`).join('');
+  document.getElementById('cats').innerHTML=CATS.map(c=>
+    `<div class="cat ${c===activeCat?'active':''}" onclick="setCat('${c}')">${c==='Мои'?'⭐ Мои':c}</div>`).join('');
 }
 function setCat(c){ activeCat=c; renderCats(); renderGrid(); }
 
 function renderGrid(){
   const q=document.getElementById('search').value.toLowerCase();
-  const list=apps.filter(a=>
-    (activeCat==='Все'||a.cat===activeCat) &&
-    (a.name.toLowerCase().includes(q)||a.dev.toLowerCase().includes(q))
-  );
+  const list=apps.filter(a=>{
+    const catOk=activeCat==='Все'||(activeCat==='Мои'?a.owner===profile.name:a.cat===activeCat);
+    return catOk&&(a.name.toLowerCase().includes(q)||a.dev.toLowerCase().includes(q));
+  }).sort((a,b)=>(avg(b)-avg(a))||(b.dl-a.dl));
   const g=document.getElementById('grid');
-  if(!list.length){ g.innerHTML='<div class="empty">😕 Ничего не найдено.<br>Загрузите своё APK — и оно появится здесь!</div>'; return; }
+  if(!list.length){ g.innerHTML='<div class="empty">😕 Здесь пока пусто.<br>Загрузите своё APK — и оно появится здесь!</div>'; return; }
   g.innerHTML=list.map(a=>`
     <div class="card" onclick="openApp('${a.id}')">
-      <div class="icon" style="background:${colorFor(a.name)}26;border:1px solid ${colorFor(a.name)}55">${a.icon||'📱'}</div>
-      <h3>${esc(a.name)}</h3>
+      ${iconHtml(a,'icon')}
+      <h3>${esc(a.name)} ${a.owner===profile.name?'<span class="mine-badge">МОЁ</span>':''}</h3>
       <div class="dev">${esc(a.dev)}</div>
       <div class="meta">
         <span class="stars">${starStr(avg(a))}</span>
@@ -226,11 +312,11 @@ function renderGrid(){
 
 function openApp(id){
   curApp=apps.find(a=>a.id===id); curStars=5;
-  const a=curApp, col=colorFor(a.name);
+  const a=curApp;
   document.getElementById('appModalBody').innerHTML=`
     <button class="close-x" onclick="closeModal('appModal')">✕</button>
     <div class="m-head">
-      <div class="icon" style="background:${col}26;border:1px solid ${col}55">${a.icon||'📱'}</div>
+      ${iconHtml(a,'icon')}
       <div>
         <h2>${esc(a.name)}</h2>
         <div style="color:var(--muted);font-size:13px">${esc(a.dev)}</div>
@@ -253,37 +339,36 @@ function openApp(id){
       <div class="rev-form">
         <b style="font-size:14px">Оставить отзыв</b>
         <div class="star-input" id="starIn">${[1,2,3,4,5].map(i=>`<span class="${i<=5?'on':''}" onclick="setStars(${i})" data-i="${i}">★</span>`).join('')}</div>
-        <input id="revName" maxlength="20" placeholder="Ваше имя">
         <textarea id="revText" rows="2" maxlength="200" placeholder="Расскажите о приложении..."></textarea>
-        <button class="btn btn-pub" style="width:100%" onclick="addReview()">Отправить отзыв</button>
+        <button class="btn btn-pub" style="width:100%" onclick="addReview()">Отправить как ${esc(profile.name)}</button>
       </div>
     </div>`;
   document.getElementById('appModal').classList.add('open');
 }
-function revHtml(r){ return `<div class="rev"><div class="r-top"><span class="r-user">${esc(r.u)}</span><span class="stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</span></div><div class="r-text">${esc(r.t)}</div></div>`; }
-
+function revHtml(r){
+  return `<div class="rev"><div class="r-top"><span class="r-user"><span class="r-ava">${esc((r.u||'?')[0].toUpperCase())}</span>${esc(r.u)}</span><span class="stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</span></div><div class="r-text">${esc(r.t)}</div></div>`;
+}
 function setStars(n){ curStars=n; document.querySelectorAll('#starIn span').forEach(s=>s.classList.toggle('on',+s.dataset.i<=n)); }
 async function addReview(){
-  const u=document.getElementById('revName').value.trim(), t=document.getElementById('revText').value.trim();
-  if(!u||!t){ toast('Заполните имя и текст отзыва'); return; }
-  curApp.revs.unshift({u,s:curStars,t});
-  await dbPut(curApp);
+  const t=document.getElementById('revText').value.trim();
+  if(!t){ toast('Напишите текст отзыва'); return; }
+  curApp.revs.unshift({u:profile.name,s:curStars,t});
+  await dbPut('apps',curApp);
   openApp(curApp.id); renderGrid(); toast('✅ Отзыв опубликован!');
 }
 
 function downloadApk(){
-  const a=curApp, btn=document.getElementById('dlBtn'), p=document.getElementById('dlProg'), bar=p.querySelector('i');
+  const a=curApp,btn=document.getElementById('dlBtn'),p=document.getElementById('dlProg'),bar=p.querySelector('i');
   btn.disabled=true; btn.textContent='⬇ Скачивание...'; p.style.display='block';
   let w=0;
   const iv=setInterval(async ()=>{
     w+=Math.random()*22+8;
     if(w>=100){
       w=100; clearInterval(iv); p.style.display='none';
-      // Отдаём настоящий APK-файл
       const url=URL.createObjectURL(a.blob);
       const l=document.createElement('a'); l.href=url; l.download=a.fileName||'app.apk'; l.click();
       setTimeout(()=>URL.revokeObjectURL(url),5000);
-      a.dl++; await dbPut(a); renderGrid();
+      a.dl++; await dbPut('apps',a); renderGrid();
       btn.textContent='✅ APK сохранён'; btn.disabled=false;
       toast('📦 '+a.fileName+' сохранён');
     }
@@ -291,7 +376,7 @@ function downloadApk(){
   },160);
 }
 
-/* ---- загрузка настоящего APK ---- */
+/* ===== загрузка APK и аватарки приложения ===== */
 function pickFile(f){
   if(!f) return;
   if(!f.name.toLowerCase().endsWith('.apk')){ toast('⚠️ Нужен файл с расширением .apk'); return; }
@@ -300,16 +385,31 @@ function pickFile(f){
   document.getElementById('fileName').textContent='✅ '+f.name+' ('+fmtBytes(f.size)+')';
   if(!document.getElementById('pName').value) document.getElementById('pName').value=f.name.replace(/\.apk$/i,'').replace(/[_-]+/g,' ');
 }
-const drop=document.getElementById('fileDrop'), finput=document.getElementById('apkFile');
+const drop=document.getElementById('fileDrop'),finput=document.getElementById('apkFile');
 drop.onclick=()=>finput.click();
 finput.onchange=e=>pickFile(e.target.files[0]);
 drop.ondragover=e=>{e.preventDefault();drop.classList.add('over');};
 drop.ondragleave=()=>drop.classList.remove('over');
 drop.ondrop=e=>{e.preventDefault();drop.classList.remove('over');pickFile(e.dataTransfer.files[0]);};
 
+document.getElementById('iconFile').addEventListener('change',e=>{
+  const f=e.target.files[0]; if(!f) return;
+  if(!f.type.startsWith('image/')){ toast('⚠️ Аватарка — это картинка'); return; }
+  pendingIcon=f;
+  document.getElementById('iconPrev').innerHTML=`<img src="${URL.createObjectURL(f)}">`;
+});
+function setEmojiIcon(){
+  pendingIcon=null;
+  const e=EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+  document.getElementById('iconPrev').textContent=e;
+  window._emojiIcon=e;
+}
+
 function openPub(){
-  pendingFile=null; finput.value='';
+  pendingFile=null; pendingIcon=null; finput.value=''; window._emojiIcon='📦';
   document.getElementById('fileName').style.display='none';
+  document.getElementById('iconPrev').textContent='📦';
+  document.getElementById('pDev').value=profile.name!=='Пользователь'?profile.name:'';
   document.getElementById('pubModal').classList.add('open');
 }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); }
@@ -323,19 +423,21 @@ async function publish(){
         desc=document.getElementById('pDesc').value.trim();
   if(!pendingFile){ toast('⚠️ Сначала выберите APK-файл'); return; }
   if(!name||!dev||!desc){ toast('Заполните обязательные поля'); return; }
-  const ver=document.getElementById('pVer').value.trim()||'1.0.0';
   const app={
     id:Date.now().toString(), name, dev, desc,
     cat:document.getElementById('pCat').value,
-    icon:'📦', ver, dl:0, revs:[],
+    icon:pendingIcon?'📦':(window._emojiIcon||'📦'),
+    iconBlob:pendingIcon||null,
+    ver:document.getElementById('pVer').value.trim()||'1.0.0',
+    dl:0, revs:[], owner:profile.name,
     blob:pendingFile, fileName:pendingFile.name, sizeStr:fmtBytes(pendingFile.size)
   };
-  await dbPut(app);
-  apps.unshift(app); pendingFile=null;
-  saveReset(); renderGrid(); closeModal('pubModal');
+  await dbPut('apps',app);
+  apps.unshift(app); pendingFile=null; pendingIcon=null;
+  ['pName','pDev','pVer','pDesc'].forEach(i=>document.getElementById(i).value='');
+  renderGrid(); closeModal('pubModal');
   toast('🚀 Приложение опубликовано в saimonStore!');
 }
-function saveReset(){ ['pName','pDev','pIcon','pVer','pDesc'].forEach(i=>document.getElementById(i).value=''); }
 
 init();
 </script>
